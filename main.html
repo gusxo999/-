@@ -7,6 +7,13 @@
         <input type="checkbox">
         <label>다이어트 여부</label>
         <input type="checkbox">
-        <button id="login">확인</button>
+        <button id="login" onclick="CheckyourChecklist()">확인</button>
     </fieldset>
+    <script>
+        function CheckyourChecklist(){
+            const check = confirm("선택한 내용이 맞으십니까?")
+            if(check==true)
+                location.assign("result.html");      
+        }
+    </script>
 </body>
