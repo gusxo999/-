@@ -4,19 +4,90 @@
     <table border="1">
         <tr>
             <td>기초 대사량</td>
-            <td id="sumkcal"></td>
+            <td id="kcal"></td>
         </tr>
         <tr>
             <td>필요 단백질</td>
             <td id="protein"></td>
+            <td id="proteinkcal"></td>
         </tr>
         <tr>
             <td>필요 탄수화물</td>
             <td id="carbon"></td>
+            <td id="carbonkcal"></td>
         </tr>
         <tr>
             <td>필요 지방</td>
             <td id="fat"></td>
+            <td id="fatkcal"></td>
+        </tr>
+        <tr>
+            <td>활동량</td>
+            <td id="activehour"></td>
+        </tr>
+        <tr>
+            <td>필요 대사량</td>
+            <td id="totalkcal"></td>
         </tr>
     </table>
 </body>
+
+<script>
+    const age=localStorage.getItem("age")
+    const height=localStorage.getItem("height");
+    const weight=localStorage.getItem("weight");
+    const muscle=localStorage.getItem("muscle");
+    const sex=localStorage.getItem("sex");
+    const activehour=localStorage.getItem("activehour");
+    var BMC=0
+    var Act_BMC=0
+
+    if (muscle===0){
+        if (sex==="남자"){
+            muscle=28
+        }
+        else{
+            muscle=20
+        }
+    }
+
+    if(sex=="남자"){
+        BMC = 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age)
+    }
+    else{
+        BMC = 665.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age)
+    }
+
+    if(activehour<2){
+        Act_BMC= BMC * 1.3
+        document.getElementById("activehour").innerText= "낮음"
+    }
+    else if(activehour<5){
+        Act_BMC=BMC * 1.5
+        document.getElementById("activehour").innerText= "중간"
+    }
+    else if(activehour>=5){
+        Act_BMC=BMC * 1.75
+        document.getElementById("activehour").innerText= "높음"
+    }
+
+    // Diet == 활동 대사량 - 500 
+    const my_protein = weight * 2 // 섭취 단백질 g
+    const protein = my_protein * 4 // 단백질 kcal 
+    const Diet_kcal = Act_BMC - 500
+    const BMC_1 = Diet_kcal - protein // 단백질 칼로리를 제외한 활동 칼로리    
+    const carb = BMC_1 * 0.7 // 탄수화물 kcal 
+    const fat = BMC_1 * 0.3 // 지방 kcal 
+    const my_carb = carb / 4 // 탄수화물 g
+    const my_fat = fat / 9 // 지방 g 
+
+    document.getElementById("kcal").innerText= BMC
+    document.getElementById("protein").innerText= my_protein
+    document.getElementById("proteinkcal").innerText= protein + "kcal"
+    document.getElementById("carbon").innerText= my_carb
+    document.getElementById("carbonkcal").innerText= carb+ "kcal"
+    document.getElementById("fat").innerText= my_fat
+    document.getElementById("fatkcal").innerText= fat + "kcal"
+    document.getElementById("totalkcal").innerText= Diet_kcal + "kcal"
+
+</script>

@@ -4,29 +4,48 @@
     <table border="1">
         <tr>
             <td>나이 </td>
-            <td id="age2"></td>
+            <td id="age"></td>
         </tr>
         <tr>
             <td>키 </td>
-            <td id="height2"></td>
+            <td id="height"></td>
         </tr>
         <tr>
             <td>몸무게</td>
-            <td id="weight2"></td>
+            <td id="weight"></td>
+        </tr>       
+        <tr>
+            <td>성별</td>
+            <td id="sex"></td>
         </tr>
         <tr>
             <td>근육량</td>
-            <td id="muscle2"></td>
+            <td id="muscle"></td>
         </tr>
         <tr>
-            <td>성별</td>
-            <td id="sex2"></td>
+            <td>활동량</td>
+            <td id="activehour"></td>
         </tr>
     </table>
     <li>
         입력한 정보가 맞으십니까?
-        <ul><button >확인</button></ul>
-        <ul><button >취소</button></ul>
+        <ul><button onclick="getyourResult()">확인</button></ul>
+        <ul><button onclick="login()">취소</button></ul>
     </li>
 </body>
 
+<script>
+    document.getElementById("age").innerText = localStorage.getItem("age") + "세"
+    document.getElementById("height").innerText = localStorage.getItem("height") + "cm"
+    document.getElementById("weight").innerText = localStorage.getItem("weight") + "Kg"
+    document.getElementById("muscle").innerText = localStorage.getItem("muscle")    
+    document.getElementById("sex").innerText = localStorage.getItem("sex")
+    document.getElementById("activehour").innerText = localStorage.getItem("activehour") + "시간"
+    
+    function getyourResult(){
+        location.assign("result.html")
+    }
+    function login(){
+        location.assign("main.html")
+    }
+</script>
