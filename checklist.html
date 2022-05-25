@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--style-->
+    <link rel="stylesheet" href="css.css">
+    <title>백그라운드</title>
+    <style>
+      body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 250px;
+        text-align: center;
+      }
+      fieldset{
+        width: 400px;
+        padding-bottom: 10px;
+      }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend align="center">알레르기 체크리스트</legend>
+        <label>메밀</label>
+        <input type="checkbox">
+        <label>밀</label>
+        <input type="checkbox">
+        <label>대두</label>
+        <input type="checkbox">
+        <label>견과류</label>
+        <input type="checkbox"><br>
+        <label>육류</label>
+        <input type="checkbox">
+        <label>갑각류</label>
+        <input type="checkbox">
+        <label>복숭아</label>
+        <input type="checkbox">
+        <label>토마토</label>
+        <input type="checkbox"><br>
+        <label>계류</label>
+        <input type="checkbox">
+        <label>우유</label>
+        <input type="checkbox">
+        <label>조개류</label>
+        <input type="checkbox">
+        <label>아황산 포함식</label>
+        <input type="checkbox"><br>
+
+        <button id="login" onclick="CheckyourChecklist()">확인</button>
+    </fieldset>
+
+    <script>
+        function CheckyourChecklist(){
+            const check = confirm("선택한 내용이 맞으십니까?")
+            if(check==true)
+                location.assign("result.html");
+        }
+    </script>
+</body>

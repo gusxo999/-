@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--style-->
+    <link rel="stylesheet" href="css.css">
+    <title>백그라운드</title>
+    <style>
+      body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 250px;
+        text-align: center;
+      }
+      fieldset{
+        width: 400px;
+        padding-bottom: 10px;
+      }
+    </style>
+</head>
 
 <body>
     <form onsubmit="return false"> <!-- onsubmit="return false"가 없으면 submitting 상태에서 다른 페이지로 안넘어가는 버그 발생하기도함-->
@@ -19,13 +43,13 @@
                     <label>몸무게 :</label>
                     <input type="number" id="weight">
                     <label>Kg</label>
-                </li>                
+                </li>
                 <li>
                     <label>성별 : </label>
                     <input type="radio" id="sex" value="남" onclick="setsexmale()">
                     <label>남</label>
                     <input type="radio" id="sex" value="여" onclick="setsexfemale()">
-                    <label>여</label>                    
+                    <label>여</label>
                 </li>
                 <li>
                     <label>근육량 모르면 0 입력 :</label>
@@ -35,7 +59,7 @@
                     <label>활동량 모르면 0 입력 :</label>
                     <input type="number" id="activehour" value="0">
                     <label>시간</label>
-                </li>         
+                </li>
             </ul>
             <button onclick="checkyourlist()">확인</button>
         </fieldset>
@@ -64,4 +88,4 @@
     localStorage.setItem("activehour", document.getElementById("activehour").value);
     location.assign("check.html");
 }
-</script> 
+</script>

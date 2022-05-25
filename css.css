@@ -1,0 +1,23 @@
+legend{
+    padding: 10px 10px;
+}
+secf {
+  color: black;
+  font-size: 6rem;
+  text-align:center;
+}
+secp{
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+}
+secm{
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+}
+body {
+    background-image: url('mainimage.jpg');
+    background-color: #D9E5FF;
+}
+url('C:/Users/hun/Desktop/atomtest');
