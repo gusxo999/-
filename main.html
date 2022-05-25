@@ -25,41 +25,67 @@
 </head>
 
 <body>
-    <fieldset>
-        <legend align="center">알레르기 체크리스트</legend>
-        <label>메밀</label>
-        <input type="checkbox">
-        <label>밀</label>
-        <input type="checkbox">
-        <label>대두</label>
-        <input type="checkbox">
-        <label>견과류</label>
-        <input type="checkbox"><br>
-        <label>육류</label>
-        <input type="checkbox">
-        <label>갑각류</label>
-        <input type="checkbox">
-        <label>복숭아</label>
-        <input type="checkbox">
-        <label>토마토</label>
-        <input type="checkbox"><br>
-        <label>계류</label>
-        <input type="checkbox">
-        <label>우유</label>
-        <input type="checkbox">
-        <label>조개류</label>
-        <input type="checkbox">
-        <label>아황산 포함식</label>
-        <input type="checkbox"><br>
-
-        <button id="login" onclick="CheckyourChecklist()">확인</button>
-    </fieldset>
-
-    <script>
-        function CheckyourChecklist(){
-            const check = confirm("선택한 내용이 맞으십니까?")
-            if(check==true)
-                location.assign("result.html");
-        }
-    </script>
+    <form onsubmit="return false"> <!-- onsubmit="return false"가 없으면 submitting 상태에서 다른 페이지로 안넘어가는 버그 발생하기도함-->
+        <fieldset>
+            <legend>체크리스트</legend>
+            <ul>
+                <li>
+                    <label>나이 :</label>
+                    <input type="number" id="age">
+                    <label>세</label>
+                </li>
+                <li>
+                    <label>키 :</label>
+                    <input type="number" id="height">
+                    <label>cm</label>
+                </li>
+                <li>
+                    <label>몸무게 :</label>
+                    <input type="number" id="weight">
+                    <label>Kg</label>
+                </li>
+                <li>
+                    <label>성별 : </label>
+                    <input type="radio" id="sex" value="남" onclick="setsexmale()">
+                    <label>남</label>
+                    <input type="radio" id="sex" value="여" onclick="setsexfemale()">
+                    <label>여</label>
+                </li>
+                <li>
+                    <label>근육량 모르면 0 입력 :</label>
+                    <input type="number" id="muscle" value="0">
+                </li>
+                <li>
+                    <label>활동량 모르면 0 입력 :</label>
+                    <input type="number" id="activehour" value="0">
+                    <label>시간</label>
+                </li>
+            </ul>
+            <button onclick="checkyourlist()">확인</button>
+        </fieldset>
+    </form>
 </body>
+
+<script>
+    document.getElementById("age").value = localStorage.getItem("age"); // 만약 뒷페이지에서 숫자가 잘못된걸 확인하고 돌아왔을때 반복입력방지
+    document.getElementById("height").value = localStorage.getItem("height");
+    document.getElementById("weight").value = localStorage.getItem("weight");
+    document.getElementById("muscle").value = localStorage.getItem("muscle");
+    document.getElementById("activehour").value = localStorage.getItem("activehour");
+    document.getElementById("sex").value = localStorage.getItem("sex");
+
+    function setsexmale(){
+        localStorage.setItem("sex","남자");
+    }
+    function setsexfemale(){
+        localStorage.setItem("sex","여자");
+    }
+    function checkyourlist(){
+    localStorage.setItem("age", document.getElementById("age").value);
+    localStorage.setItem("height", document.getElementById("height").value);
+    localStorage.setItem("weight", document.getElementById("weight").value);
+    localStorage.setItem("muscle", document.getElementById("muscle").value);
+    localStorage.setItem("activehour", document.getElementById("activehour").value);
+    location.assign("check.html");
+}
+</script>

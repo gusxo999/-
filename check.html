@@ -1,4 +1,29 @@
 <!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--style-->
+    <link rel="stylesheet" href="css.css">
+    <title>백그라운드</title>
+    <style>
+      body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 250px;
+        text-align: center;
+      }
+      fieldset{
+        width: 400px;
+        padding-bottom: 10px;
+      }
+    </style>
+</head>
+
 
 <body>
     <table border="1">
@@ -13,7 +38,7 @@
         <tr>
             <td>몸무게</td>
             <td id="weight"></td>
-        </tr>       
+        </tr>
         <tr>
             <td>성별</td>
             <td id="sex"></td>
@@ -38,14 +63,14 @@
     document.getElementById("age").innerText = localStorage.getItem("age") + "세"
     document.getElementById("height").innerText = localStorage.getItem("height") + "cm"
     document.getElementById("weight").innerText = localStorage.getItem("weight") + "Kg"
-    document.getElementById("muscle").innerText = localStorage.getItem("muscle")    
+    document.getElementById("muscle").innerText = localStorage.getItem("muscle")
     document.getElementById("sex").innerText = localStorage.getItem("sex")
     document.getElementById("activehour").innerText = localStorage.getItem("activehour") + "시간"
-    
+
     function getyourResult(){
         location.assign("result.html")
     }
     function login(){
-        location.assign("main.html")
+        location.assign("maindata.html")
     }
 </script>

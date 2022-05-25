@@ -71,23 +71,23 @@
         document.getElementById("activehour").innerText= "높음"
     }
 
-    // Diet == 활동 대사량 - 500 
+    // Diet == 활동 대사량 - 500
     const my_protein = weight * 2 // 섭취 단백질 g
-    const protein = my_protein * 4 // 단백질 kcal 
+    const protein = my_protein * 4 // 단백질 kcal
     const Diet_kcal = Act_BMC - 500
-    const BMC_1 = Diet_kcal - protein // 단백질 칼로리를 제외한 활동 칼로리    
-    const carb = BMC_1 * 0.7 // 탄수화물 kcal 
-    const fat = BMC_1 * 0.3 // 지방 kcal 
+    const BMC_1 = Diet_kcal - protein // 단백질 칼로리를 제외한 활동 칼로리
+    const carb = BMC_1 * 0.7 // 탄수화물 kcal
+    const fat = BMC_1 * 0.3 // 지방 kcal
     const my_carb = carb / 4 // 탄수화물 g
-    const my_fat = fat / 9 // 지방 g 
+    const my_fat = fat / 9 // 지방 g
 
-    document.getElementById("kcal").innerText= BMC
-    document.getElementById("protein").innerText= my_protein
-    document.getElementById("proteinkcal").innerText= protein + "kcal"
-    document.getElementById("carbon").innerText= my_carb
-    document.getElementById("carbonkcal").innerText= carb+ "kcal"
-    document.getElementById("fat").innerText= my_fat
-    document.getElementById("fatkcal").innerText= fat + "kcal"
-    document.getElementById("totalkcal").innerText= Diet_kcal + "kcal"
+    document.getElementById("kcal").innerText= Math.ceil(BMC) + "kcal"
+    document.getElementById("protein").innerText= Math.ceil(my_protein) + "g" ;
+    document.getElementById("proteinkcal").innerText= Math.ceil(protein) + "kcal" ;
+    document.getElementById("carbon").innerText= Math.ceil(my_carb) + "g" ;
+    document.getElementById("carbonkcal").innerText= Math.ceil(carb) + "kcal"
+    document.getElementById("fat").innerText= Math.ceil(my_fat) + "g" ;
+    document.getElementById("fatkcal").innerText= Math.ceil(fat) + "kcal"
+    document.getElementById("totalkcal").innerText= Math.ceil(Diet_kcal) + "kcal"
 
 </script>
