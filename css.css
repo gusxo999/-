@@ -1,3 +1,4 @@
+
 legend{
     padding: 10px 10px;
 }
@@ -16,7 +17,16 @@ secm{
   text-align: center;
   font-size: 2rem;
 }
+.center {
+  width: 100px;
+  margin: 0 auto;
+}
+
+
 body {
-    background-image: url('mainimage.jpg');
+    height: 100vh;
     background-color: #D9E5FF;
+    background-image: url('mainimage.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
 }
