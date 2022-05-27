@@ -61,17 +61,18 @@
 </body>
 
 <script>
-    document.getElementById("age").innerText = localStorage.getItem("age") + "세"
-    document.getElementById("height").innerText = localStorage.getItem("height") + "cm"
-    document.getElementById("weight").innerText = localStorage.getItem("weight") + "Kg"
-    document.getElementById("muscle").innerText = localStorage.getItem("muscle")
-    document.getElementById("sex").innerText = localStorage.getItem("sex")
-    document.getElementById("activehour").innerText = localStorage.getItem("activehour") + "시간"
+    const id = localStorage.getItem("id");
+    document.getElementById("age").innerText = localStorage.getItem(id+".age") + "세"
+    document.getElementById("height").innerText = localStorage.getItem(id+".height") + "cm"
+    document.getElementById("weight").innerText = localStorage.getItem(id+".weight") + "Kg"
+    document.getElementById("muscle").innerText = localStorage.getItem(id+".muscle") + "Kg"
+    document.getElementById("sex").innerText = localStorage.getItem(id+".sex")
+    document.getElementById("activehour").innerText = localStorage.getItem(id+".activehour") + "시간"
 
     function getyourResult(){
-        location.assign("result.html")
+        location.assign("checklist.html")
     }
     function login(){
-        location.assign("maindata.html")
+        location.assign("main.html")
     }
 </script>

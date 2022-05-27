@@ -47,9 +47,9 @@
                 </li>
                 <li>
                     <label>성별 : </label>
-                    <input type="radio" id="sex" value="남" onclick="setsexmale()">
+                    <input type="radio" name="sex" id="male" value="sex" onclick="setsexmale()">
                     <label>남</label>
-                    <input type="radio" id="sex" value="여" onclick="setsexfemale()">
+                    <input type="radio" name="sex" id="female" value="sex" onclick="setsexfemale()">
                     <label>여</label>
                 </li>
                 <li>
@@ -68,25 +68,34 @@
 </body>
 
 <script>
-    document.getElementById("age").value = localStorage.getItem("age"); // 만약 뒷페이지에서 숫자가 잘못된걸 확인하고 돌아왔을때 반복입력방지
-    document.getElementById("height").value = localStorage.getItem("height");
-    document.getElementById("weight").value = localStorage.getItem("weight");
-    document.getElementById("muscle").value = localStorage.getItem("muscle");
-    document.getElementById("activehour").value = localStorage.getItem("activehour");
-    document.getElementById("sex").value = localStorage.getItem("sex");
+    const id = localStorage.getItem("id");
+    document.getElementById("age").value = localStorage.getItem(id+".age"); // 만약 뒷페이지에서 숫자가 잘못된걸 확인하고 돌아왔을때 반복입력방지
+    document.getElementById("height").value = localStorage.getItem(id+".height");
+    document.getElementById("weight").value = localStorage.getItem(id+".weight");
+    document.getElementById("muscle").value = localStorage.getItem(id+".muscle");
+    document.getElementById("activehour").value = localStorage.getItem(id+".activehour");
+    
+    if(localStorage.getItem(id+".sex")=="남자"){
+        document.getElementById("male").checked=true
+    }
+    else{
+        document.getElementById("female").checked=true
+    }
+    
+    document.getElementById("sex").value = localStorage.getItem(id+".sex");
 
     function setsexmale(){
-        localStorage.setItem("sex","남자");
+        localStorage.setItem(id+".sex","남자");
     }
     function setsexfemale(){
-        localStorage.setItem("sex","여자");
+        localStorage.setItem(id+".sex","여자");
     }
     function checkyourlist(){
-    localStorage.setItem("age", document.getElementById("age").value);
-    localStorage.setItem("height", document.getElementById("height").value);
-    localStorage.setItem("weight", document.getElementById("weight").value);
-    localStorage.setItem("muscle", document.getElementById("muscle").value);
-    localStorage.setItem("activehour", document.getElementById("activehour").value);
+    localStorage.setItem(id+".age", document.getElementById("age").value);
+    localStorage.setItem(id+".height", document.getElementById("height").value);
+    localStorage.setItem(id+".weight", document.getElementById("weight").value);
+    localStorage.setItem(id+".muscle", document.getElementById("muscle").value);
+    localStorage.setItem(id+".activehour", document.getElementById("activehour").value);
     location.assign("check.html");
 }
 </script>
