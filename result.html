@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--style-->
+    <link rel="stylesheet" href="css.css">
+    <title>백그라운드</title>
+    <style>
+      body{
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 250px;
+        text-align: center;
+      }
+      table{
+        width: 500px;
+        margin-left: 33%;
+      }
+    </style>
+</head>
 
 <body>
     <table border="1">
@@ -8,18 +32,18 @@
         </tr>
         <tr>
             <td>필요 단백질</td>
-            <td id="protein"></td>
             <td id="proteinkcal"></td>
+            <td id="protein"></td>
         </tr>
         <tr>
             <td>필요 탄수화물</td>
-            <td id="carbon"></td>
             <td id="carbonkcal"></td>
+            <td id="carbon"></td>
         </tr>
         <tr>
             <td>필요 지방</td>
-            <td id="fat"></td>
             <td id="fatkcal"></td>
+            <td id="fat"></td>
         </tr>
         <tr>
             <td>활동량</td>
@@ -89,5 +113,6 @@
     document.getElementById("fat").innerText= Math.ceil(my_fat) + "g" ;
     document.getElementById("fatkcal").innerText= Math.ceil(fat) + "kcal"
     document.getElementById("totalkcal").innerText= Math.ceil(Diet_kcal) + "kcal"
+
 
 </script>

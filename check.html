@@ -18,9 +18,8 @@
         text-align: center;
       }
       table{
-        width: 400px;
-        margin-left: 37%;
-        padding-bottom: 10px;
+        width: 500px;
+        margin-left: 33%;
       }
     </style>
 </head>
@@ -29,7 +28,7 @@
 <body>
     <table border="1">
         <tr>
-            <td>나이 </td>
+            <td>(만) 나이 </td>
             <td id="age"></td>
         </tr>
         <tr>
@@ -69,9 +68,9 @@
     document.getElementById("activehour").innerText = localStorage.getItem("activehour") + "시간"
 
     function getyourResult(){
-        location.assign("result.html")
+        location.assign("checklist.html")
     }
     function login(){
-        location.assign("maindata.html")
+        location.assign("main.html")
     }
 </script>

@@ -21,7 +21,11 @@ secm{
   width: 100px;
   margin: 0 auto;
 }
-
+#age, #height, #weight, #muscle, #activehour{
+  width: 40px;
+  line-height: 20px;
+  text-align: center;
+}
 
 body {
     height: 100vh;

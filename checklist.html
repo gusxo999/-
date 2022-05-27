@@ -18,9 +18,14 @@
         text-align: center;
       }
       fieldset{
-        width: 400px;
-        padding-bottom: 10px;
+        width: 400px;/*필드셋 크기*/
+        padding-bottom: 10px;/*아래 여백*/
       }
+          fieldset legend {/*필드셋 제목*/
+                  font-weight: bold; /*제목굵기*/
+                  font-size: 14px; /*제목 크기*/
+                  color: darkgreen;  /*제목 색상*/
+          }
     </style>
 </head>
 
@@ -51,8 +56,11 @@
         <input type="checkbox">
         <label>아황산 포함식</label>
         <input type="checkbox"><br>
-
         <button id="login" onclick="CheckyourChecklist()">확인</button>
+    </fieldset>
+
+    <fieldset>
+        <legend align="center">근성장 목표치</legend>
     </fieldset>
 
     <script>
