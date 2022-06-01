@@ -11,55 +11,70 @@
     <title>백그라운드</title>
     <style>
       body{
-        background-repeat: no-repeat;
-        background-size: cover;
         position: relative;
         top: 250px;
         text-align: center;
       }
       fieldset{
-        width: 400px;
-        margin-left: 35%;
+        width: 500px;
+        margin-left: 33%;
         padding-bottom: 10px;
       }
+      fieldset legend{
+        font-weight: bold;
+        font-size: 20px;
+      }
+      label.title {/*class=title 에 적용될 스타일*/
+          font-weight: bold;
+          float: left;
+      }
+      label.subtitle {/*class=subtitle 에 적용될 스타일*/
+          font-weight: bold;
+      }
+      ul{
+          list-style-type: none;
+      }
+            ul li{
+                    margin-bottom: 5px;
+                 }
     </style>
 </head>
-
 <body>
     <form onsubmit="return false"> <!-- onsubmit="return false"가 없으면 submitting 상태에서 다른 페이지로 안넘어가는 버그 발생하기도함-->
         <fieldset>
-            <legend>체크리스트</legend>
+            <legend>신체 정보</legend>
             <ul>
                 <li>
-                    <label>나이 :</label>
+                    <label for="number" class='title'>(만) 나이 :</label>
                     <input type="number" id="age">
-                    <label>세</label>
+                    <label class="subtitle">세</label>
                 </li>
                 <li>
-                    <label>키 :</label>
-                    <input type="number" id="height">
-                    <label>cm</label>
+                    <label for="number" class='title'>키 :</label>
+                    <input type="number" id="height" >
+                    <label class="subtitle">cm</label>
                 </li>
                 <li>
-                    <label>몸무게 :</label>
+                    <label for="number" class='title'>몸무게 :</label>
                     <input type="number" id="weight">
-                    <label>Kg</label>
+                    <label class="subtitle">Kg</label>
                 </li>
                 <li>
-                    <label>성별 : </label>
+                    <label for="number" class='title'>성별 : </label>
+                    <label class="subtitle">남</label>
                     <input type="radio" name="sex" id="male" value="sex" onclick="setsexmale()">
-                    <label>남</label>
+                    <label class="subtitle">여</label>
                     <input type="radio" name="sex" id="female" value="sex" onclick="setsexfemale()">
-                    <label>여</label>
                 </li>
                 <li>
-                    <label>근육량 모르면 0 입력 :</label>
+                    <label for="number" class='title'>근육량 (모르면 0 입력) :</label>
                     <input type="number" id="muscle" value="0">
+                    <label class="subtitle">Kg</label>
                 </li>
                 <li>
-                    <label>활동량 모르면 0 입력 :</label>
+                    <label for="number" class='title'>활동량 (모르면 0 입력) :</label>
                     <input type="number" id="activehour" value="0">
-                    <label>시간</label>
+                    <label class="subtitle">시간</label>
                 </li>
             </ul>
             <button onclick="checkyourlist()">확인</button>
