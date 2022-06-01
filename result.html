@@ -30,18 +30,18 @@
             </tr>
             <tr>
                 <td>필요 단백질</td>
-                <td id="protein"></td>
                 <td id="proteinkcal"></td>
+                <td id="protein"></td>            
             </tr>
             <tr>
                 <td>필요 탄수화물</td>
-                <td id="carbon"></td>
                 <td id="carbonkcal"></td>
+                <td id="carbon"></td>             
             </tr>
             <tr>
                 <td>필요 지방</td>
-                <td id="fat"></td>
                 <td id="fatkcal"></td>
+                <td id="fat"></td>
             </tr>
             <tr>
                 <td>활동량</td>
@@ -209,7 +209,7 @@
         CarbonGram=0                        
         ProteinGram=0
         FatGram=0 
-        
+
         for(i=0; i<4&&RecommendedDiet<WantedDietCount ; i++ ){
             while(carbonsum<my_carb){
                 carbonsum+=Foods[i][1]/100          //탄수화물음식 1g 당 탄수화물을 carbonsum 에 더함
