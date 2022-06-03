@@ -33,6 +33,7 @@
       }
       ul{
           list-style-type: none;
+          text-align: center;
       }
             ul li{
                     margin-bottom: 5px;
@@ -61,10 +62,10 @@
                 </li>
                 <li>
                     <label for="number" class='title'>성별 : </label>
+                      <input type="radio" name="sex" id="male" value="sex" onclick="setsexmale()">
                     <label class="subtitle">남</label>
-                    <input type="radio" name="sex" id="male" value="sex" onclick="setsexmale()">
-                    <label class="subtitle">여</label>
                     <input type="radio" name="sex" id="female" value="sex" onclick="setsexfemale()">
+                    <label class="subtitle">여</label>
                 </li>
                 <li>
                     <label for="number" class='title'>근육량 (모르면 0 입력) :</label>
@@ -89,14 +90,14 @@
     document.getElementById("weight").value = localStorage.getItem(id+".weight");
     document.getElementById("muscle").value = localStorage.getItem(id+".muscle");
     document.getElementById("activehour").value = localStorage.getItem(id+".activehour");
-    
+
     if(localStorage.getItem(id+".sex")=="남자"){
         document.getElementById("male").checked=true
     }
     else{
         document.getElementById("female").checked=true
     }
-    
+
     document.getElementById("sex").value = localStorage.getItem(id+".sex");
 
     function setsexmale(){

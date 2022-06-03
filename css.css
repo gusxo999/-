@@ -28,10 +28,12 @@ secm{
   text-align: center;
 }
 
+
 body {
     height: 100vh;
     background-color: #D9E5FF;
     background-image: url('mainimage.jpg');
-    background-repeat : no-repeat;
+    background-attachment: local;
+  
     background-size : cover;
 }

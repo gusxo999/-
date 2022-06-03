@@ -12,13 +12,28 @@
         <style>
       body{
         position: relative;
-        top: 250px;
+        top: 100px;
         text-align: center;
+
       }
       table{
-        width: 500px;
+        width: 528px;
         margin-left: 33%;
       }
+      fieldset{
+        width: 500px;/*필드셋 크기*/
+        margin-left: 33%;
+        padding-bottom: 10px;/*아래 여백*/
+      }
+          fieldset legend {/*필드셋 제목*/
+                  font-weight: bold; /*제목굵기*/
+                  font-size: 14px; /*제목 크기*/
+                  color: darkgreen;  /*제목 색상*/
+
+          }
+          ol{
+              list-style-type: none;
+          }
     </style>
     </head>
 
@@ -31,12 +46,12 @@
             <tr>
                 <td>필요 단백질</td>
                 <td id="proteinkcal"></td>
-                <td id="protein"></td>            
+                <td id="protein"></td>
             </tr>
             <tr>
                 <td>필요 탄수화물</td>
                 <td id="carbonkcal"></td>
-                <td id="carbon"></td>             
+                <td id="carbon"></td>
             </tr>
             <tr>
                 <td>필요 지방</td>
@@ -51,7 +66,7 @@
                 <td>활동 대사량</td>
                 <td id="totalkcal"></td>
             </tr>
-        </table>
+        </table><br>
         <label>식단의 목적 : </label>
         <input type="radio" id="decrease" name="whatyourdiet"
             onclick="setKcalDecrease()">
@@ -63,10 +78,10 @@
             onclick="setKcalIncrease()">
         <label>증량</label>
 
-        <fieldset>
+        <fieldset >
             <legend>추천 식단</legend>
-            <ol id="diet">
-                
+            <ol style="padding=0; width:=500px; height: 350px; overflow-x:hidden" id="diet">
+
 
             </ol>
         </fieldset>
@@ -136,13 +151,13 @@
 
     if(localStorage.getItem(id+".objective")=="증량"){
         if(document.getElementById("activehour").innerText=="낮음"){
-            Act_BMC= Act_BMC + 300           
+            Act_BMC= Act_BMC + 300
         }
 
         if(document.getElementById("activehour").innerText=="중간"){
             Act_BMC= Act_BMC + 400
         }
-        
+
         if(document.getElementById("activehour").innerText=="높음"){
             Act_BMC= Act_BMC + 500
 
@@ -157,7 +172,7 @@
     const my_carb = carb / 4 // 탄수화물 g
     const my_fat = fat / 9 // 지방 g
 
-    
+
     document.getElementById("kcal").innerText= Math.ceil(BMC) + "kcal"
     document.getElementById("protein").innerText= Math.ceil(my_protein) + "g" ;
     document.getElementById("proteinkcal").innerText= Math.ceil(protein) + "kcal" ;
@@ -166,23 +181,23 @@
     document.getElementById("fat").innerText= Math.ceil(my_fat) + "g" ;
     document.getElementById("fatkcal").innerText= Math.ceil(fat) + "kcal"
     document.getElementById("totalkcal").innerText= Math.ceil(Act_BMC) + "kcal"
-    
-    var WantedDietCount=100      //기존에 저장된 '원하는 식단의 개수'가 없을경우 기본값 5 로 지정
-                                                                
+
+    var WantedDietCount=64      //기존에 저장된 '원하는 식단의 개수'가 없을경우 기본값 5 로 지정
+
 
     var RecommendedDiet=0                 //짜여진 식단의 개수를 기록하기위한 변수선언
-    
+
     var carbonsum                        //짜여진 식단의 탄단지를 기록하기위한 변수선언
     var proteinsum
     var fatsum
-    
+
     var CarbonGram                          //짜여진 식단을 구성하는 음식의 g을 기록하기위한 변수선언
     var ProteinGram
     var FatGram
 
     var FoodCount                           //짜여진 식단의 음식종류 개수를 기록하기위한 변수선언
-    
-    
+
+
 
     const Foods=[["쌀밥","33.0","3.0","0"], //100g 기준 탄수화물, 단백질, 지방
                  ["현미밥","38.0","4.0","0"],
@@ -202,20 +217,20 @@
     var k=0
 
     while(RecommendedDiet<WantedDietCount){                 //요구하는 식단의 수 만큼 반복
-        carbonsum=0                                       
+        carbonsum=0
         proteinsum=0
         fatsum=0
 
-        CarbonGram=0                        
+        CarbonGram=0
         ProteinGram=0
-        FatGram=0 
+        FatGram=0
 
         for(i=0; i<4&&RecommendedDiet<WantedDietCount ; i++ ){
             while(carbonsum<my_carb){
                 carbonsum+=Foods[i][1]/100          //탄수화물음식 1g 당 탄수화물을 carbonsum 에 더함
                 CarbonGram++                          //식단에 음식 1g 추가
             }
-            
+
             for(j=4; j<8&&RecommendedDiet<WantedDietCount ;j++){
                 while(proteinsum<my_protein){
                     proteinsum+=Foods[j][2]/100          //단백질음식 1g 당 단백질을 proteinsum 에 더함
@@ -227,13 +242,13 @@
                         FatGram++                          //식단에 음식 1g 추가
                     }
                     var CreatedDiet = document.createElement("li")             //식단 생성
-                    CreatedDiet.setAttribute("id","diet"+(RecommendedDiet+1))        
-                    CreatedDiet.innerText="식단" + (RecommendedDiet+1)+": "
+                    CreatedDiet.setAttribute("id","diet"+(RecommendedDiet+1))
+                    CreatedDiet.innerText="식단 " + (RecommendedDiet+1)+" :\0"
                     document.getElementById("diet").appendChild(CreatedDiet)
 
-                    
-                    CreatedDiet.innerText+=Foods[i][0]+ " " + CarbonGram + "g,"
-                    CreatedDiet.innerText+=Foods[j][0]+ " " + ProteinGram + "g,"
+
+                    CreatedDiet.innerText+=Foods[i][0]+ " " + CarbonGram + "g,\0"
+                    CreatedDiet.innerText+=Foods[j][0]+ " " + ProteinGram + "g,\0"
                     CreatedDiet.innerText+=Foods[k][0]+ " " + FatGram + "g"
                     RecommendedDiet++
                     fatsum=0
@@ -241,11 +256,11 @@
                 }
                 proteinsum=0
                 ProteinGram=0
-                
+
             }
             carbonsum=0
             CarbonGram=0
-        }     
-        
+        }
+
     }
 </script>
